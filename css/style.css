@@ -19,7 +19,8 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('img/background.png');
+    background-color: #121212; /* Fallback color */
+    background-image: url('../img/background.png'); /* Caminho corrigido */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -82,6 +83,10 @@ body {
     letter-spacing: 1px;
     color: var(--text-light);
     transition: 0.3s;
+}
+
+.translate-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .main-content {
@@ -478,6 +483,7 @@ body {
     letter-spacing: 1px;
 }
 
+/* Media Queries */
 @media (max-width: 1024px) {
     .main-content {
         padding: 0 10% 4rem;
@@ -536,8 +542,8 @@ body {
     }
     
     .skill {
-        width: 110px;
-        height: 110px;
+        width: 130px;
+        height: 130px;
     }
     
     .skill .percentage {
@@ -565,62 +571,9 @@ body {
     }
     
     .name-line { 
-        font-size: 2.5rem;
-        letter-spacing: 8px;
-    }
-    
-    .title {
-        font-size: 1rem;
-        margin: 2.5rem 0 6rem 0;
-    }
-    
-    .video-container iframe {
-        height: 250px;
-    }
-    
-    .skills-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .skill {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .skill .percentage {
-        font-size: 1.1rem;
-    }
-    
-    .skill-title {
-        font-size: 0.8rem;
-    }
-
-    .progress-bars {
-        margin-top: 3rem;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .skills-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-    
-    .skill {
-        width: 130px;
-        height: 130px;
-    }
-}
-
-@media (max-width: 480px) {
-    .name-line { 
-        font-size: 2.8rem; /* Ajuste fino no tamanho da fonte */
-        letter-spacing: 6px; /* Reduz um pouco o espaçamento */
-        margin-bottom: 1.5rem; /* Mais espaço entre as linhas */
+        font-size: 2.8rem;
+        letter-spacing: 6px;
+        margin-bottom: 1.5rem;
     }
     
     .title {
@@ -635,27 +588,31 @@ body {
     .section-title {
         font-size: 1.6rem;
     }
-}
-
-@media (max-width: 480px) {
+    
+    .video-container iframe {
+        height: 250px;
+    }
+    
     .skills-container {
         grid-template-columns: 1fr;
-        gap: 50px; /* Aumenta o espaçamento entre os gráficos */
-        margin-bottom: 2rem;
+        gap: 40px;
     }
     
     .skill {
         width: 120px;
         height: 120px;
-        margin: 0 auto; /* Centraliza os gráficos */
-    }
-    
-    .skill .percentage {
-        font-size: 1.1rem;
     }
     
     .skill-title {
         font-size: 0.8rem;
-        margin-top: 20px; /* Mais espaço acima do título */
+        margin-top: 20px;
+    }
+
+    .progress-bars {
+        margin-top: 3rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
     }
 }
