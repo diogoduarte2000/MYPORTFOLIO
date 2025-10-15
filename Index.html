@@ -233,7 +233,7 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Portfolio Section 
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title">Meu Portfólio</h2>
@@ -243,8 +243,8 @@
                 <button class="filter-btn" data-filter="web">Web</button>
                 <button class="filter-btn" data-filter="video">Vídeo</button>
             </div>
-            <div class="portfolio-grid">
-                <!-- Project 1 -->
+            <div class="portfolio-grid">            -->
+                <!-- Project 1 
                 <div class="portfolio-item" data-category="design">
                     <div class="portfolio-card">
                         <div class="portfolio-image">
@@ -271,9 +271,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                  -->
 
-                <!-- Project 2 -->
+                <!-- Project 2 
                 <div class="portfolio-item" data-category="web">
                     <div class="portfolio-card">
                         <div class="portfolio-image">
@@ -301,9 +301,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Project 3 -->
+                </div>                  -->
+                
+                <!-- Project 3
                 <div class="portfolio-item" data-category="video">
                     <div class="portfolio-card">
                         <div class="portfolio-image">
@@ -330,9 +330,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                  -->
 
-                <!-- Project 4 -->
+                <!-- Project 4
                 <div class="portfolio-item" data-category="design">
                     <div class="portfolio-card">
                         <div class="portfolio-image">
@@ -359,7 +359,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                                     -->
             </div>
         </div>
     </section>
@@ -396,221 +396,4 @@
                             <h3>Localização</h3>
                             <p>Portugal</p>
                         </div>
-                    </div>
-                </div>
-                <div class="download-section">
-                    <h3>Documentos</h3>
-                    <div class="download-buttons">
-                        <a href="https://drive.google.com/uc?export=download&id=1-Qxj8nScjs9hfzQpkMtO2ZIM0ep5720j" class="btn btn-primary" id="download-cv-contact">
-                            <i class="fas fa-download"></i> Download Currículo
-                        </a>
-                        <a href="https://drive.google.com/uc?export=download&id=1ONiWYP3zuz4WTdBUzhc38hcJ2kWQsCis" class="btn btn-secondary" id="download-portfolio-contact">
-                            <i class="fas fa-download"></i> Download Portfólio
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Diogo Duarte</h3>
-                    <p>Multimedia Designer & Web Developer</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#home" class="footer-link">Home</a>
-                    <a href="#sobre" class="footer-link">Sobre</a>
-                    <a href="#habilidades" class="footer-link">Habilidades</a>
-                    <a href="#portfolio" class="footer-link">Portfólio</a>
-                    <a href="#contato" class="footer-link">Contato</a>
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/diogo-duarte-471a221b6/" class="social-link">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/diogoduarte2000" class="social-link">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Diogo Duarte. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Script da Esfera 3D Interativa -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const canvas = document.getElementById('sphereCanvas');
-            const ctx = canvas.getContext('2d');
-
-            // Configurar canvas
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-            window.addEventListener('resize', resizeCanvas);
-            resizeCanvas();
-
-            // Criar pontos para a esfera
-            const points = [];
-            for (let i = 0; i < 100; i++) {
-                const theta = Math.random() * Math.PI * 2;
-                const phi = Math.acos(Math.random() * 2 - 1);
-                points.push({
-                    x: Math.sin(phi) * Math.cos(theta),
-                    y: Math.sin(phi) * Math.sin(theta),
-                    z: Math.cos(phi)
-                });
-            }
-
-            // Criar conexões entre pontos próximos
-            const connections = [];
-            for (let i = 0; i < points.length; i++) {
-                for (let j = i + 1; j < points.length; j++) {
-                    const dx = points[i].x - points[j].x;
-                    const dy = points[i].y - points[j].y;
-                    const dz = points[i].z - points[j].z;
-                    const dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
-                    if (dist < 0.4) {
-                        connections.push([i, j]);
-                    }
-                }
-            }
-
-            // Criar estrelas que rodam com a esfera
-            const stars = [];
-            for (let i = 0; i < 150; i++) {
-                const theta = Math.random() * Math.PI * 2;
-                const phi = Math.acos(Math.random() * 2 - 1);
-                stars.push({
-                    x: Math.sin(phi) * Math.cos(theta),
-                    y: Math.sin(phi) * Math.sin(theta),
-                    z: Math.cos(phi),
-                    size: Math.random() * 1.5 + 0.5,
-                    opacity: Math.random() * 0.8 + 0.2,
-                    radius: 250 + Math.random() * 100
-                });
-            }
-
-            // Variáveis de rotação
-            let autoRotation = 0;
-            let mouseRotationX = 0;
-            let mouseRotationY = 0;
-            let targetMouseX = 0;
-            let targetMouseY = 0;
-
-            // Interação com o rato
-            document.addEventListener('mousemove', (event) => {
-                const mouseX = event.clientX;
-                const mouseY = event.clientY;
-                
-                // Converter posição do rato para rotação (-0.5 a 0.5)
-                targetMouseX = (mouseY / window.innerHeight - 0.5) * Math.PI;
-                targetMouseY = (mouseX / window.innerWidth - 0.5) * Math.PI;
-            });
-
-            function rotatePoint(point, rotX, rotY) {
-                let { x, y, z } = point;
-                
-                // Rotação X (vertical - com o rato)
-                const cosX = Math.cos(rotX);
-                const sinX = Math.sin(rotX);
-                const y1 = y * cosX - z * sinX;
-                const z1 = y * sinX + z * cosX;
-                
-                // Rotação Y (horizontal - com o rato)
-                const cosY = Math.cos(rotY);
-                const sinY = Math.sin(rotY);
-                const x2 = x * cosY + z1 * sinY;
-                const z2 = -x * sinY + z1 * cosY;
-                
-                return { x: x2, y: y1, z: z2 };
-            }
-
-            function animate() {
-                // Limpar canvas
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                // Suavizar a rotação do rato
-                mouseRotationX += (targetMouseX - mouseRotationX) * 0.05;
-                mouseRotationY += (targetMouseY - mouseRotationY) * 0.05;
-                
-                // Atualizar rotação automática
-                autoRotation += 0.002;
-
-                // Combinar rotações (auto + rato)
-                const totalRotationX = mouseRotationX;
-                const totalRotationY = autoRotation + mouseRotationY;
-
-                // Rotacionar e projetar ESTRELAS
-                ctx.fillStyle = 'white';
-                stars.forEach(star => {
-                    const rotatedStar = rotatePoint(star, totalRotationX, totalRotationY);
-                    
-                    const scale = 300 / (300 + rotatedStar.z * star.radius);
-                    const px = rotatedStar.x * star.radius * scale + canvas.width / 2;
-                    const py = rotatedStar.y * star.radius * scale + canvas.height / 2;
-
-                    if (rotatedStar.z > -0.5) {
-                        ctx.globalAlpha = star.opacity;
-                        ctx.beginPath();
-                        ctx.arc(px, py, star.size * scale, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                });
-
-                ctx.globalAlpha = 1;
-
-                // Rotacionar e projetar PONTOS DA ESFERA
-                const rotated = points.map(point => rotatePoint(point, totalRotationX, totalRotationY));
-
-                const projected = rotated.map(point => {
-                    const scale = 300 / (300 + point.z * 150);
-                    return {
-                        x: point.x * 150 * scale + canvas.width / 2,
-                        y: point.y * 150 * scale + canvas.height / 2,
-                        scale: scale,
-                        z: point.z
-                    };
-                });
-
-                // Desenhar conexões (retas)
-                ctx.strokeStyle = 'rgba(100, 149, 237, 0.3)';
-                ctx.lineWidth = 0.8;
-                connections.forEach(([i, j]) => {
-                    const p1 = projected[i];
-                    const p2 = projected[j];
-                    if (p1.z > -0.3 && p2.z > -0.3) {
-                        ctx.beginPath();
-                        ctx.moveTo(p1.x, p1.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.stroke();
-                    }
-                });
-
-                // Desenhar pontos da esfera
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-                projected.forEach((point) => {
-                    if (point.z > -0.3) {
-                        ctx.beginPath();
-                        ctx.arc(point.x, point.y, 2 * point.scale, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                });
-
-                requestAnimationFrame(animate);
-            }
-
-            animate();
-        });
-    </script>
-
-    <script src="js/main.js"></script>
-</body>
-</html>
+      
